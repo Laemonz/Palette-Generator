@@ -43,7 +43,7 @@ public class PaletteGenerator {
      * Display the PaletteGenerator GUI
      */
     public void displayGUI() {
-        frame.setSize(8*COLORWIDTH+100, (int)(1.75*COLORHEIGHT));
+        frame.setSize(8*COLORWIDTH+100, (int)(1.5*COLORHEIGHT));
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -88,16 +88,16 @@ public class PaletteGenerator {
         footerPanel.add(getGenerateButton());
 
         // add color Panels to bodyPanel
-        bodyPanel.add(createColorPanels());
+        bodyPanel = createColorPanels();
 
         // set the preferred sizes and colours here
-        headerPanel.setPreferredSize(new Dimension(8*COLORWIDTH, COLORHEIGHT/4));
+        headerPanel.setPreferredSize(new Dimension(8*COLORWIDTH, COLORHEIGHT/6));
         headerPanel.setBackground(Color.white);
 
         bodyPanel.setPreferredSize(new Dimension(8*COLORWIDTH, COLORHEIGHT));
-        footerPanel.setBackground(Color.white);
+        bodyPanel.setBackground(Color.white);
 
-        footerPanel.setPreferredSize(new Dimension(8*COLORWIDTH, COLORHEIGHT/4));
+        footerPanel.setPreferredSize(new Dimension(8*COLORWIDTH, COLORHEIGHT/6));
         footerPanel.setBackground(Color.white);
 
         // add JLabels to the panel
@@ -114,7 +114,7 @@ public class PaletteGenerator {
      * @return JPanel: JPanel containing 8 JPanels with associated lock JButtons
      */
     private JPanel createColorPanels() {
-        JPanel ColorPanel = new JPanel();
+        JPanel ColorPanel = new JPanel(new GridLayout());
         for (int i = 0; i < 8; i++) {
             JPanel jp = new JPanel(new BorderLayout());
             JPanel colorPanel = new JPanel();
