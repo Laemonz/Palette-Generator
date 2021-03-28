@@ -79,18 +79,15 @@ public class PaletteGenerator {
         JPanel mainPanel = new JPanel(new BorderLayout());
 
         JPanel headerPanel = new JPanel(new BorderLayout());
-        JPanel bodyPanel = new JPanel();
+        JPanel bodyPanel = createColorPanels();
         JPanel footerPanel = new JPanel();
 
-        // adding JLabels to the respective JPanel
         headerPanel.add(headerLabel1, BorderLayout.PAGE_START);
         headerPanel.add(headerLabel2, BorderLayout.CENTER);
         footerPanel.add(getGenerateButton());
 
-        // add color Panels to bodyPanel
-        bodyPanel = createColorPanels();
 
-        // set the preferred sizes and colours here
+        // set the preferred sizes and colours
         headerPanel.setPreferredSize(new Dimension(8*COLORWIDTH, COLORHEIGHT/6));
         headerPanel.setBackground(Color.white);
 
@@ -100,7 +97,7 @@ public class PaletteGenerator {
         footerPanel.setPreferredSize(new Dimension(8*COLORWIDTH, COLORHEIGHT/6));
         footerPanel.setBackground(Color.white);
 
-        // add JLabels to the panel
+        // add JPanels to the main panel
         mainPanel.add(headerPanel, BorderLayout.PAGE_START);
         mainPanel.add(bodyPanel, BorderLayout.CENTER);
         mainPanel.add(footerPanel, BorderLayout.PAGE_END);
